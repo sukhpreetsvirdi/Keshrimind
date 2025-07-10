@@ -28,6 +28,9 @@ html {
 }
 
 body {
+    
+  overflow-x: hidden;
+
     font-family: 'Roboto', sans-serif; /* Using Roboto as per your HTML */
     line-height: 1.6;
     color: var(--text-color);
@@ -878,35 +881,41 @@ footer ul li a:hover {
 
 
 /* ocea wrapper  */
-
 .ocean-wrapper {
   position: relative;
-  width: 20%;
-  height: 100px;
-
-
+  width: 100%;
+  height: 130px;
+  overflow: hidden;
+  /* background removed */
 }
 
+/* .ocean-wrapper {
+  position: absolute; /* ✨ magic change */
+  /* bottom: 0; */
+  /* left: 0; */
+  /* width: 100%; */
+  /* height: 80px; or adjust for thinner waves */
+  /* overflow: hidden; */
+  /* so it doesn’t interfere with clicks */
 
 
 .ocean-layer {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 1000px;
-  height: 145%;
-  animation: horizontalWave 40s linear infinite;
-    /* overflow: hidden; */
+  width: 340%;
+  height: 170%;
+  animation: horizontalWave 20s linear infinite;
 }
 
 .layer1 {
-  z-index: 1;
+  z-index: 5;
   animation-duration: 8s;
 }
 
 
 .layer2 {
-  z-index: 2;
+  z-index: 4;
   animation-duration: 10s;
 }
 
@@ -916,19 +925,20 @@ footer ul li a:hover {
 }
 
 .layer4 {
-  z-index: 4;
+  z-index: 2;
   animation-duration:14s;
 }
 
-
+.layer5{
+  z-index: 1;
+  animation-duration:9s;
+}
 
 
 @keyframes horizontalWave {
-  0% { transform: translateX(40%); }
-  100% { transform: translateX(-25%); }
+  0% { transform: translateX(45%); }
+  100% { transform: translateX(-80%); }
 }
-
- 
 
 
 
@@ -1320,3 +1330,4 @@ footer ul li a:hover {
 .linkedin:hover  { background: #0077b5; }
 .twitter:hover   { background: #1da1f2; }
  
+
