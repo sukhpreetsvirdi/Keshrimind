@@ -1449,17 +1449,18 @@ body.scrolled main {
   max-width: 1200px;
   margin: auto;
   text-align: center;
+  padding: 0 10px;
 }
 
 .custom-location-header h2 {
-  font-size: 2.5rem;
+  font-size: clamp(1.8rem, 5vw, 2.5rem); /* fluid text */
   font-weight: 700;
   color: #ffffff;
   margin-bottom: 10px;
 }
 
 .custom-location-header p {
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
   color: #a0b9d0;
   margin-bottom: 40px;
 }
@@ -1467,12 +1468,13 @@ body.scrolled main {
 .custom-location-card {
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 0; /* gap removed to avoid white lines when stacked */
   background: #022b58;
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(10px);
+  flex-direction: row;
 }
 
 .custom-location-map {
@@ -1491,18 +1493,26 @@ body.scrolled main {
 }
 
 .custom-location-info h3 {
-  font-size: 1.8rem;
+  font-size: clamp(1.4rem, 4vw, 1.8rem);
   font-weight: bold;
   margin-bottom: 20px;
   color: #ff7f00;
 }
 
 .custom-location-info p {
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
   line-height: 1.6;
   color: #dce6f9;
 }
 
+/* Tablet and below */
+@media (max-width: 992px) {
+  .custom-location-info {
+    padding: 30px;
+  }
+}
+
+/* Mobile view */
 @media (max-width: 768px) {
   .custom-location-card {
     flex-direction: column;
@@ -1510,6 +1520,7 @@ body.scrolled main {
 
   .custom-location-map {
     border-radius: 20px 20px 0 0;
+    min-height: 250px;
   }
 
   .custom-location-info {
@@ -1517,6 +1528,17 @@ body.scrolled main {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 0 0 20px 20px;
     text-align: left;
+  }
+}
+
+/* Super small devices */
+@media (max-width: 480px) {
+  .custom-location-info {
+    padding: 20px;
+  }
+
+  .custom-location-header p {
+    margin-bottom: 30px;
   }
 }
 
